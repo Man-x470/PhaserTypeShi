@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuck figgers</title>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+</head>
+
+
+<script type="text/javascript">
+var config = {
+    type: Phaser.AUTO,
+    width:  1390 ,
+    height:  920,
+    scene: {
+        preload: preload,
+        create: create,
+        update: update
+    }
+};
+
+var game = new Phaser.Game(config);
+var platforms;
+
+function preload ()
+{
+    this.load.image('Ciel', 'assets/Ciel.png');
+    this.load.image('ground', 'assets/Deh.png');
+}
+
+function create ()
+{
+    const logo = this.add.image(695, 400, 'Ciel');
+    logo.setScale(5);
+
+    platforms = this.physics.add.staticGroup();
+
+    platforms.create(0, 0, 'ground').setScale(0.5).refreshBody();
+
+    platforms.create(0, 0, 'ground');
+    platforms.create(0, 0, 'ground');
+    platforms.create(0, 0, 'ground');
+
+}
+
+function update ()
+{
+}
+
+</script>
+</html>
